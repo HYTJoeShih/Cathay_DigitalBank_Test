@@ -6,8 +6,8 @@ import random
 def count_number(input_number):
     limit = 3
     ans = input_number % limit
-    if input_number == 0 or input_number < limit:
-        return input_number  # 輸入0，或是小於3
+    if input_number < limit:  # 輸入小於3
+        return input_number
     elif ans == 0:
         return limit  # 可被整除就是3
     else:
