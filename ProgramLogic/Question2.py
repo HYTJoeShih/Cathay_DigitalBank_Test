@@ -2,8 +2,8 @@
 # 1-2 計算字卡
 
 def count_characters(input_text):
-    input_text = input_text.upper()  # 將字串都轉換為大寫
     input_text = input_text.replace(' ', '')  # 將字串去除空格
+    input_text = input_text.upper()  # 將字串都轉換為大寫
     input_text = ''.join(sorted(input_text))  # 排序
     char_map = {}
     return_str = ''
