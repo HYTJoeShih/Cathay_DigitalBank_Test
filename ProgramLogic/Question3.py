@@ -3,18 +3,19 @@
 import random
 
 
-def count_number(input_number):
-    limit = 3
-    ans = input_number % limit
-    if input_number < limit:  # 輸入小於3
-        return input_number
-    elif ans == 0:
-        return limit  # 可被整除就是3
-    else:
-        return ans  # 餘數
+def find_last_person(n):
+    if n == 0:
+        return '沒有人'
+
+    people = list(range(1, n + 1))  # 建立人員列表，編號從1到n
+    index = 0  # 目前報數的人的索引
+    while len(people) > 1:
+        index = (index + 2) % len(people)  # 跳過3個人，取餘數避免索引超出範圍
+        del people[index]  # 退出圈子
+    return people[0]  # 返回最後留下的人的編號
 
 
-total_number = random.randrange(100)  # 產生0~100的亂數
-which_seat = count_number(total_number)
-print('總人數：' + str(total_number))
-print('順位：' + str(which_seat))
+QA_peoples =  random.randrange(100)  # 產生0~100的亂數至QA人數
+last_person = find_last_person(QA_peoples)
+print("QA總人數：", QA_peoples)
+print("最後留下的人的順位：", last_person)
